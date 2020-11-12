@@ -31,8 +31,12 @@ public class BeanBakersTests {
 	 * @return provided list reversed
 	 */
 	private <T> List<T> doReverseList(List<T> input) {
-		// TODO: Write code!
-		return Collections.emptyList();
+		int listlen = input.size() - 1;
+		List<T> output = new ArrayList<T>();
+		for(int i = listlen; i >= 0; i--) {
+			output.add(input.get(i));
+		}
+		return output;
 	}
 
 	@Test
@@ -51,8 +55,16 @@ public class BeanBakersTests {
 	 * @return int array containing the calculated fibonacci sequence
 	 */
 	private int[] doFibonacciSequence(int sequenceLength) {
-		// TODO: Write code!
-		return new int[0];
+		int[] output = new int[sequenceLength];
+		output[0] = 1;
+		for(int i = 1; i < sequenceLength; i++) {
+			int nextSum = output[i - 1];
+			if(i > 1) {
+				nextSum += output[i - 2];
+			}
+			output[i] = nextSum;
+		}
+		return output;
 	}
 
 	@Test
@@ -74,8 +86,11 @@ public class BeanBakersTests {
 	 * @return true if provided series ascends, false otherwise.
 	 */
 	private boolean isAscendingSeries(List<Integer> series) {
-		// TODO: Write code!
-		return false;
+		boolean ascFlag = true;
+		for(int i = 1; i < series.size(); i++) {
+			if(series.get(i) < series.get(i - 1)) ascFlag = false;
+		}
+		return ascFlag;
 	}
 
 	/**
@@ -86,7 +101,10 @@ public class BeanBakersTests {
 	 * @return true if the provided series descends, false otherwise.
 	 */
 	private boolean isDescendingSeries(List<Integer> series) {
-		// TODO: Write code!
-		return false;
+		boolean descFlag = true;
+		for(int i = 1; i < series.size(); i++) {
+			if(series.get(i) > series.get(i - 1)) descFlag = false;
+		}
+		return descFlag;
 	}
 }
