@@ -86,6 +86,7 @@ public class BeanBakersTests {
 	 * @return true if provided series ascends, false otherwise.
 	 */
 	private boolean isAscendingSeries(List<Integer> series) {
+		if(series.size() <= 1) return true;
 		boolean ascFlag = true;
 		for(int i = 1; i < series.size(); i++) {
 			if(series.get(i) < series.get(i - 1)) ascFlag = false;
@@ -101,6 +102,7 @@ public class BeanBakersTests {
 	 * @return true if the provided series descends, false otherwise.
 	 */
 	private boolean isDescendingSeries(List<Integer> series) {
+		if(series.size() <= 1) return true;
 		boolean descFlag = true;
 		for(int i = 1; i < series.size(); i++) {
 			if(series.get(i) > series.get(i - 1)) descFlag = false;
