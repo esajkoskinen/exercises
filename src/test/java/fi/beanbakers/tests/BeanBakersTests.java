@@ -87,11 +87,10 @@ public class BeanBakersTests {
 	 */
 	private boolean isAscendingSeries(List<Integer> series) {
 		if(series.size() <= 1) return true;
-		boolean ascFlag = true;
 		for(int i = 1; i < series.size(); i++) {
-			if(series.get(i) < series.get(i - 1)) ascFlag = false;
+			if(series.get(i) < series.get(i - 1)) return false;
 		}
-		return ascFlag;
+		return true;
 	}
 
 	/**
@@ -103,10 +102,9 @@ public class BeanBakersTests {
 	 */
 	private boolean isDescendingSeries(List<Integer> series) {
 		if(series.size() <= 1) return true;
-		boolean descFlag = true;
 		for(int i = 1; i < series.size(); i++) {
-			if(series.get(i) > series.get(i - 1)) descFlag = false;
+			if(series.get(i) > series.get(i - 1)) return false;
 		}
-		return descFlag;
+		return true;
 	}
 }
